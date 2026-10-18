@@ -78,9 +78,11 @@ public sealed partial class MainWindow
         }, true)));
         page.Children.Add(Group(setup));
         var game = Ui.Stack(16); game.Children.Add(Text(UiStrings.Get("Text243"), 20, true));
-        game.Children.Add(Text(session.Profile.GamePath is null ? UiStrings.Get("Text244") : Path.GetFileNameWithoutExtension(session.Profile.GamePath), 17));
+        game.Children.Add(Text(SelectedGameName, 17));
         var path = Hint(session.Profile.GamePath ?? UiStrings.Get("Text245")); path.TextTrimming = TextTrimming.CharacterEllipsis; path.MaxLines = 2; game.Children.Add(path);
-        var pick = Button(UiStrings.Get("Text246"), PickGame); pick.IsEnabled = !session.Armed; game.Children.Add(pick);
+        var pick = Button(UiStrings.Get("Text246"), PickGame); pick.IsEnabled = !session.Armed;
+        var customGame = Button(UiStrings.Get("GameCustom"), PickCustomGame); customGame.IsEnabled = !session.Armed;
+        game.Children.Add(Ui.Row(pick, customGame));
         var apps = Ui.Stack(16); apps.Children.Add(Text(UiStrings.Get("Text009"), 20, true));
         apps.Children.Add(Text(UiStrings.Format("Text247", session.Profile.AllowedApps.Count), 17));
         apps.Children.Add(Hint(session.Profile.AllowedApps.Count == 0 ? UiStrings.Get("Text248") : string.Join(", ", session.Profile.AllowedApps.Select(a => Path.GetFileNameWithoutExtension(a.Path)))));
@@ -91,7 +93,7 @@ public sealed partial class MainWindow
         changes.Children.Add(Button(UiStrings.Get("Text223"), async () => { await session.Restore(); ShowPage("Gaming"); }));
         page.Children.Add(Group(changes)); return page;
     }
-    private async Task PickGame()
+    private async Task PickCustomGame()
     {
         if (session.Armed) throw new InvalidOperationException(UiStrings.Get("Text253"));
         var picker = new FileOpenPicker();
@@ -99,7 +101,9 @@ public sealed partial class MainWindow
         picker.FileTypeFilter.Add(".exe");
         var file = await picker.PickSingleFileAsync();
         if (file is null) return;
-        session.Save(session.Profile with { GamePath = file.Path }); ShowPage("Gaming");
+        session.Save(session.Profile with { GamePath = file.Path });
+        JsonFiles.Write(Path.Combine(dataDirectory, "game-selection.json"), new SelectedGame(Path.GetFileNameWithoutExtension(file.Path), "Custom", file.Path));
+        ShowPage("Gaming");
     }
     private async Task ChooseApps()
     {

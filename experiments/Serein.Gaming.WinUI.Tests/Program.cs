@@ -29,6 +29,7 @@ try
     bool invalidLanguage = false; try { UiStrings.SetLanguage("xx"); } catch (InvalidDataException) { invalidLanguage = true; }
     Require(invalidLanguage, "Unknown language refused");
     UiStrings.SetLanguage("ru");
+    GameLibraryTests.Run(Path.Combine(directory, "game-library"), Require);
     DeviceRow DeviceFixture(string id, string category, string name = "Fixture", uint? problem = 0, string[]? hardware = null) =>
         new(name, id, category, "Fixture", hardware ?? [], [], problem, "Microsoft", "1.0", "2020-01-01", "fixture.inf", "True");
     var cpuRows = Enumerable.Range(0, 16).Select(i => DeviceFixture("cpu:" + i, "Processor", "Test CPU")).ToArray();

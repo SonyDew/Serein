@@ -1,6 +1,6 @@
 # Serein
 
-**A Windows gaming companion. First public beta — 0.1.0-beta.1.**
+**A Windows gaming companion. Beta 1.1 — 0.1.0-beta.1.1.**
 
 [English](README.md) · [Русский](README.ru.md) · [Deutsch](README.de.md)
 
@@ -12,7 +12,7 @@ on your PC, game and background workload.
 ## Download and run
 
 1. Open [Releases](https://github.com/SonyDew/Serein/releases).
-2. Download **Serein-0.1.0-beta.1-win-x64.zip** under **Assets**. The source-code
+2. Download **Serein-0.1.0-beta.1.1-win-x64.zip** under **Assets**. The source-code
    archives are for people who want to build the app themselves.
 3. Extract the **whole ZIP** into a folder. Keep its files together.
 4. Open **Serein.Gaming.WinUI.exe**. No separate .NET installation is needed.
@@ -35,6 +35,10 @@ Actual screenshots of the beta. Readings come from the test PC and will differ o
 
 ## What you can do
 
+**New in Beta 1.1:** choose installed games from Steam, Epic Games and GOG,
+with search and store filters. You can still choose your own EXE. If a game has
+several EXEs, confirm the actual game process.
+
 - **Watch your PC:** live CPU, GPU and memory activity, charts, disk and network
   throughput. Unsupported sensors show an unavailable value.
 - **Set up a gaming session:** choose a game and background apps you allow Serein
@@ -55,7 +59,7 @@ Actual screenshots of the beta. Readings come from the test PC and will differ o
 
 ## Before you test
 
-This is **Beta 1**, not a finished production release. Bugs and missing features
+This is **Beta 1.1**, not a finished production release. Bugs and missing features
 are expected. Start with monitoring, then try gaming actions only on apps you can
 safely pause. Freezing stops downloads and file saves and can hold shared resources.
 Restoration is tested but cannot cover every crash or Windows failure.
@@ -96,7 +100,7 @@ powershell -NoProfile -File experiments/Serein.Gaming.WinUI/build.ps1 -Test
 
 The app is written to `artifacts/Serein-Gaming-WinUI/`. Tests use mocks and their
 own helper apps; they do not install drivers or tune unrelated desktop apps.
-See [beta notes](docs/releases/v0.1.0-beta.1.md) for scope and verification.
+See [beta notes](docs/releases/v0.1.0-beta.1.1.md) for scope and verification.
 
 ## License
 

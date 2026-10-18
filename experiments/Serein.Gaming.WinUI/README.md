@@ -3,7 +3,7 @@
 Separate native WinUI 3 application. No WPF, webview or browser renderer.
 Main Serein is unchanged; this project is deliberately outside Serein.sln.
 
-Public beta0.1.0-beta.1: English is the primary app language. Russian and German
+Public beta0.1.0-beta.1.1: English is the primary app language. Russian and German
 switch immediately in Settings; independent language.json retains the choice.
 App-owned text is embedded from Core/Translations. Original source/assets use
 GPL-3.0-only; runtime dependency notices remain separate. User instructions are

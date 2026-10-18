@@ -24,6 +24,7 @@ public sealed partial class MainWindow
             Require(processes.Where(p => p.Name.Contains("codex", StringComparison.OrdinalIgnoreCase) || p.Name.Contains("steam", StringComparison.OrdinalIgnoreCase) || p.Name.Contains("discord", StringComparison.OrdinalIgnoreCase)).All(p => !p.CanApprove), "Protected apps");
             Require(AppWindow.Presenter is OverlappedPresenter { IsResizable: false, IsMaximizable: false }, "Fixed window");
             Require(!AppDomain.CurrentDomain.GetAssemblies().Any(a => a.GetName().Name == "PresentationFramework"), "No WPF loaded");
+            await GamePickerSmoke(directory, Require);
             devices = await Task.Run(DeviceInventory.Read);
             deviceContext = await Task.Run(DeviceContextReader.Read);
             Require(devices.Count > 0, "Native device inventory");
@@ -238,11 +239,12 @@ public sealed partial class MainWindow
         catch (Exception ex)
         { JsonFiles.Write(Path.Combine(directory, "results.json"), new { Success = false, Error = ex.ToString(), Seconds = watch.Elapsed.TotalSeconds, DiscoveryOnly = true, Installed = false }); }
     }
-    private async Task Capture(string path, int settleMilliseconds = 350)
+    private async Task Capture(string path, int settleMilliseconds = 350, FrameworkElement? target = null)
     {
-        Root.UpdateLayout(); if (settleMilliseconds > 0) await Task.Delay(settleMilliseconds);
-        var bitmap = new RenderTargetBitmap(); await bitmap.RenderAsync(Root);
-        if (bitmap.PixelWidth < 800 || bitmap.PixelHeight < 600) throw new InvalidOperationException("Capture viewport is incomplete.");
+        var visual = target ?? Root;
+        visual.UpdateLayout(); if (settleMilliseconds > 0) await Task.Delay(settleMilliseconds);
+        var bitmap = new RenderTargetBitmap(); await bitmap.RenderAsync(visual);
+        if (bitmap.PixelWidth < (target is null ? 800 : 300) || bitmap.PixelHeight < (target is null ? 600 : 200)) throw new InvalidOperationException("Capture viewport is incomplete.");
         var pixels = await bitmap.GetPixelsAsync();
         File.WriteAllBytes(path, []);
         var file = await StorageFile.GetFileFromPathAsync(path);

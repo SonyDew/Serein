@@ -30,6 +30,12 @@
      <SolidColorBrush x:Key="MutedBrush" Color="{ThemeResource SystemColorWindowTextColor}" />
     </ResourceDictionary>
    </ResourceDictionary.ThemeDictionaries>
+   <DataTemplate x:Key="InstalledGameTemplate">
+    <StackPanel Spacing="4" Padding="8,9">
+     <TextBlock Text="{Binding Name}" FontWeight="SemiBold" TextWrapping="Wrap" MaxLines="2" />
+     <TextBlock Text="{Binding Source}" FontSize="12" Opacity="0.7" />
+    </StackPanel>
+   </DataTemplate>
    <Color x:Key="SystemAccentColor">#AE9CF7</Color>
    <SolidColorBrush x:Key="AccentBrush" Color="#AE9CF7" />
    <Style TargetType="Button"><Setter Property="CornerRadius" Value="10" /><Setter Property="Padding" Value="18,11" /><Setter Property="FontSize" Value="14" /></Style>

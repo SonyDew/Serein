@@ -1,8 +1,12 @@
 # Serein
 
-**Ein Gaming-Begleiter für Windows. Erste öffentliche Beta — 0.1.0-beta.1.**
+**Ein Gaming-Begleiter für Windows. Beta 1.1 — 0.1.0-beta.1.1.**
 
 [English](README.md) · [Русский](README.ru.md) · [Deutsch](README.de.md)
+
+**Neu in Beta 1.1:** installierte Spiele aus Steam,
+Epic Games und GOG mit Suche und Store-Filter auswählen. Eine eigene EXE bleibt
+möglich; bei mehreren EXEs den eigentlichen Spielprozess bestätigen.
 
 Serein zeigt die Auslastung deines PCs und verwaltet auf Wunsch ausgewählte
 Hintergrund-Apps beim Spielen. Es hilft bei der Geräteerkennung und beim Finden
@@ -12,7 +16,7 @@ Das Ergebnis hängt von PC, Spiel und Hintergrundlast ab.
 ## Herunterladen und starten
 
 1. Öffne [Releases](https://github.com/SonyDew/Serein/releases).
-2. Lade unter **Assets** die Datei **Serein-0.1.0-beta.1-win-x64.zip** herunter.
+2. Lade unter **Assets** die Datei **Serein-0.1.0-beta.1.1-win-x64.zip** herunter.
    Die Source-code-Archive sind zum eigenen Kompilieren gedacht.
 3. Entpacke das **gesamte ZIP**. Alle Dateien müssen im selben Ordner bleiben.
 4. Starte **Serein.Gaming.WinUI.exe**. Eine separate .NET-Installation ist nicht nötig.
@@ -90,7 +94,7 @@ powershell -NoProfile -File experiments/Serein.Gaming.WinUI/build.ps1 -Test
 ```
 
 Die Anwendung liegt unter `artifacts/Serein-Gaming-WinUI/`.
-Weitere Details: [Beta-Hinweise](docs/releases/v0.1.0-beta.1.md).
+Weitere Details: [Beta-Hinweise](docs/releases/v0.1.0-beta.1.1.md).
 
 Originalcode und eigene Assets: **GPL-3.0-only**, siehe [LICENSE](LICENSE).
 Abhängigkeiten behalten eigene Lizenzhinweise im Ordner `licenses`.

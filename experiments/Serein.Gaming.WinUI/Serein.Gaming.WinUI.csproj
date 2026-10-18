@@ -16,11 +16,11 @@
     <EnableMsixTooling>false</EnableMsixTooling>
     <PublishTrimmed>false</PublishTrimmed>
     <PublishReadyToRun>false</PublishReadyToRun>
-    <Version>0.1.0-beta.1</Version>
+    <Version>0.1.0-beta.1.1</Version>
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
     <AssemblyVersion>0.1.0.0</AssemblyVersion>
-    <FileVersion>0.1.0.0</FileVersion>
-    <Description>Serein — first public beta</Description>
+    <FileVersion>0.1.0.1</FileVersion>
+    <Description>Serein — Beta 1.1</Description>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="Assets\AppIcon.ico" CopyToOutputDirectory="PreserveNewest" />
