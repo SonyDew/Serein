@@ -1,0 +1,32 @@
+name: Bug report
+description: Tell us what went wrong in the beta.
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: "English, Russian and German reports are welcome. Remove private details from screenshots and logs."
+  - type: input
+    id: version
+    attributes:
+      label: Serein and Windows versions
+      placeholder: "Serein 0.1.0-beta.1, Windows 11 x64"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: What did you do?
+      description: Simple steps help us reproduce the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: What did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: attachments
+    attributes:
+      label: Screenshots or relevant log excerpts
+      description: Optional. Review them for private information first.

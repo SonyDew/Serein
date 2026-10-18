@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><OutputType>Exe</OutputType></PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../src/Serein.Core/Serein.Core.csproj" />
+    <Compile Include="../Serein.Gaming.WinUI/OptimizerSession.cs" Link="OptimizerSession.cs" />
+    <Compile Include="../Serein.Gaming.WinUI/ExperimentalProcessProtection.cs" Link="ExperimentalProcessProtection.cs" />
+    <Compile Include="../Serein.Gaming.WinUI/AppearanceOptions.cs" Link="AppearanceOptions.cs" />
+    <Compile Include="../Serein.Gaming.WinUI/DevicePresentation.cs" Link="DevicePresentation.cs" />
+    <Compile Include="../Serein.Gaming.WinUI/DriverUpdatePresentation.cs" Link="DriverUpdatePresentation.cs" />
+  </ItemGroup>
+</Project>

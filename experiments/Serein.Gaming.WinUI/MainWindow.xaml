@@ -1,0 +1,47 @@
+<Window x:Class="Serein_Gaming_WinUI.MainWindow"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ Title="Serein">
+ <Grid x:Name="Root" Background="{ThemeResource CanvasBrush}" RequestedTheme="Dark">
+  <Grid.ColumnDefinitions><ColumnDefinition x:Name="SidebarColumn" Width="210" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+  <Canvas x:Name="BackdropCanvas" Grid.ColumnSpan="2" IsHitTestVisible="False" SizeChanged="BackdropSizeChanged" />
+  <Grid x:Name="Rail" Background="{ThemeResource RailBrush}" Padding="18,28,18,22">
+   <Grid.RowDefinitions><RowDefinition Height="70" /><RowDefinition Height="*" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+   <TextBlock x:Name="Wordmark" Text="Serein" Margin="10,0,0,0" Foreground="{ThemeResource InkBrush}" FontSize="27" FontWeight="SemiBold" />
+   <ListView x:Name="Navigation" Grid.Row="1" SelectionMode="Single" SelectionChanged="Navigate" Background="Transparent" BorderThickness="0" Padding="0" IsItemClickEnabled="False">
+    <ListViewItem Tag="Overview" Padding="12,14" Margin="0,0,0,6" CornerRadius="10"><StackPanel Orientation="Horizontal" Spacing="15"><FontIcon Glyph="&#xE80F;" FontSize="19" /><TextBlock Text="Overview" FontSize="14" /></StackPanel></ListViewItem>
+    <ListViewItem Tag="Gaming" Padding="12,14" Margin="0,0,0,6" CornerRadius="10"><StackPanel Orientation="Horizontal" Spacing="15"><FontIcon Glyph="&#xE7FC;" FontSize="19" /><TextBlock Text="Gaming mode" FontSize="14" /></StackPanel></ListViewItem>
+    <ListViewItem Tag="Processes" Padding="12,14" Margin="0,0,0,6" CornerRadius="10"><StackPanel Orientation="Horizontal" Spacing="15"><FontIcon Glyph="&#xE8A5;" FontSize="19" /><TextBlock Text="Processes" FontSize="14" /></StackPanel></ListViewItem>
+    <ListViewItem Tag="Monitoring" Padding="12,14" Margin="0,0,0,6" CornerRadius="10"><StackPanel Orientation="Horizontal" Spacing="15"><FontIcon Glyph="&#xE9D9;" FontSize="19" /><TextBlock Text="Monitoring" FontSize="14" /></StackPanel></ListViewItem>
+    <ListViewItem Tag="Device" Padding="12,14" Margin="0,0,0,6" CornerRadius="10"><StackPanel Orientation="Horizontal" Spacing="15"><FontIcon Glyph="&#xE7F4;" FontSize="19" /><TextBlock Text="Devices" FontSize="14" /></StackPanel></ListViewItem>
+    <ListViewItem Tag="Settings" Padding="12,14" Margin="0,0,0,6" CornerRadius="10"><StackPanel Orientation="Horizontal" Spacing="15"><FontIcon Glyph="&#xE713;" FontSize="19" /><TextBlock Text="Settings" FontSize="14" /></StackPanel></ListViewItem>
+   </ListView>
+  </Grid>
+  <Grid Grid.Column="1">
+   <Grid.RowDefinitions><RowDefinition Height="38" /><RowDefinition Height="*" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+   <Grid x:Name="DragRegion" Background="Transparent" Margin="0,0,140,0"><TextBlock x:Name="Breadcrumb" Margin="32,8,0,0" FontSize="12" Foreground="{ThemeResource MutedBrush}" Text="Overview" /></Grid>
+   <ScrollViewer x:Name="PageScroll" Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Padding="30,16,30,24">
+    <StackPanel Spacing="22">
+     <Grid ColumnSpacing="12">
+      <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="Auto" /></Grid.ColumnDefinitions>
+      <TextBlock x:Name="PageTitle" Text="Your gaming hub" VerticalAlignment="Center" FontSize="30" FontWeight="SemiBold" Foreground="{ThemeResource InkBrush}" />
+      <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="12">
+       <Button x:Name="RestoreButton" Content="Restore all" Visibility="Collapsed" Click="RestoreClicked" />
+       <Button x:Name="ThemeButton" Click="ThemeClicked" Width="44" Height="44" MinWidth="44" MinHeight="44" Background="Transparent" BorderThickness="0" Padding="0" ToolTipService.ToolTip="Switch theme" AutomationProperties.Name="Switch theme">
+        <Grid x:Name="ThemeIconBox" Width="24" Height="24">
+         <Grid x:Name="ThemeSun" Width="24" Height="24">
+          <Ellipse x:Name="SunCenter" Width="8" Height="8" Stroke="{ThemeResource InkBrush}" StrokeThickness="1.7" />
+          <Path x:Name="SunRays" Width="24" Height="24" Stroke="{ThemeResource InkBrush}" StrokeThickness="1.7" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M12,2 L12,4 M12,20 L12,22 M2,12 L4,12 M20,12 L22,12 M4.9,4.9 L6.3,6.3 M17.7,17.7 L19.1,19.1 M4.9,19.1 L6.3,17.7 M17.7,6.3 L19.1,4.9" />
+         </Grid>
+         <Path x:Name="ThemeMoon" Width="24" Height="24" Visibility="Collapsed" Stroke="{ThemeResource InkBrush}" StrokeThickness="1.7" StrokeLineJoin="Round" Data="M20.7,14.1 A8.8,8.8 0 1 1 9.9,3.3 A6.8,6.8 0 0 0 20.7,14.1 Z" />
+        </Grid>
+       </Button>
+      </StackPanel>
+     </Grid>
+     <ContentControl x:Name="PageContent" HorizontalContentAlignment="Stretch" />
+    </StackPanel>
+   </ScrollViewer>
+   <InfoBar x:Name="MessageBar" Grid.Row="2" Margin="30,0,30,16" IsOpen="False" IsClosable="True" />
+  </Grid>
+ </Grid>
+</Window>

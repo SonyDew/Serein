@@ -1,0 +1,26 @@
+# Common build output (Codex may replace according to chosen stack)
+bin/
+obj/
+.vs/
+.vscode/
+.idea/
+node_modules/
+dist/
+build/
+target/
+*.log
+*.tmp
+*.bak
+*.user
+*.suo
+*.pdb
+*.dmp
+*.msi
+*.msix
+*.exe
+*.zip
+# Do not commit process journals or machine-specific inventories
+runtime-data/
+local-data/
+logs/
+artifacts/

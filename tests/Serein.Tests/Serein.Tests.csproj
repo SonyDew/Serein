@@ -1,0 +1,1 @@
+<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><OutputType>Exe</OutputType></PropertyGroup><ItemGroup><ProjectReference Include="../../src/Serein.Core/Serein.Core.csproj" /><ProjectReference Include="../../src/Serein.Measure/Serein.Measure.csproj" /></ItemGroup></Project>
